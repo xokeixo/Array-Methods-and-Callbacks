@@ -104,7 +104,12 @@ Use the higher order function getAverageGoals to do the following:
 // use REDUCE().. 
 //
 function getAverageGoals(data) {
-
+    // let average = data.reduce((acc, cb) => acc + (cb['Home Team Goals'] + cb['Away Team Goals']), 0) / data.length;
+    // return average;
+    let averageHome = data.reduce(function(acc, callback){
+        return acc + callback['Home Team Goals'] + callback['Away Team Goals']
+    }, 0);
+        return (averageHome / data.length).toFixed(2);
  }
 
 
